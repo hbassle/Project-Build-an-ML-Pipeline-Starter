@@ -82,7 +82,6 @@ def go(config: DictConfig):
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/train_val_test_split",
                 "main",
-                version='main',
                 env_manager="conda",
                 parameters={
                     "input":"clean_sample.csv:latest",
@@ -122,7 +121,6 @@ def go(config: DictConfig):
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/test_regression_model",
                 "main",
-                version='main',
                 env_manager="conda",
                 parameters={
                     "mlflow_model":"random_forest_export:prod",
